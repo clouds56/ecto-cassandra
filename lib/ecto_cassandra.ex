@@ -157,6 +157,7 @@ defmodule EctoCassandra do
 
   def create_keyspace(options) do
     keyspace = Keyword.fetch!(options, :keyspace) || raise ":keyspace is nil in repository configuration"
+    options = Keyword.delete(options, :keyspace)
 
     replication =
       options
